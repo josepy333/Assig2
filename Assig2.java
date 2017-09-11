@@ -62,5 +62,16 @@ public class Assig2
 
 class TripleString
 {
+   public static final int MAX_LEN = 20;
+
+   private String string1, string2, string3;
+
+   // This method is the default constructor, which initalizes our private strings.
+   public TripleString()
+   {
+      string1 = "";
+      string2 = "";
+      string3 = "";
+   }
    
 }

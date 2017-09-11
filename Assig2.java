@@ -134,6 +134,6 @@ class TripleString
    
    // This method displays the winnings of the user
    public String displayWinnings() {
-      
+    
    }
 }

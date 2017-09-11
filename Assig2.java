@@ -74,4 +74,44 @@ class TripleString
       string3 = "";
    }
    
+   // Modifiers for setting private string values
+   public boolean setString1(String str)
+   {
+      if (validString(str) == true)
+      {
+         string1 = str;
+         return true;
+      }      
+      else
+      {
+         return false;
+      }
+   }
+   
+   public boolean setString2(String str)
+   {
+      if (validString(str) == true)
+      {
+         string2 = str;
+         return true;
+      }      
+      else
+      {
+         return false;
+      }
+   }
+   
+   public boolean setString3(String str)
+   {
+      if (validString(str) == true)
+      {
+         string3 = str;
+         return true;
+      }  
+      else
+      {
+         return false;
+      }
+   }
+   
 }

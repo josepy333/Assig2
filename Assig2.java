@@ -74,6 +74,17 @@ class TripleString
       string3 = "";
    }
    
+   // Determines legality of string
+   public boolean validString(String str)
+   {
+      if (str != NULL && str.length() < MAX_LEN) {
+         return true;
+      }
+      else {
+         return false;
+      }
+   }
+   
    // Modifiers for setting private string values
    public boolean setString1(String str)
    {
@@ -121,4 +132,8 @@ class TripleString
       return combinedString;
    }
    
+   // This method displays the winnings of the user
+   public displayWinnings() {
+      
+   }
 }

@@ -114,6 +114,7 @@ class TripleString
       }
    }
    
+   // This method combines the private strings into a single string.
    public String toString()
    {
       String combinedString = string1 + " " + string2 + " " + string3;

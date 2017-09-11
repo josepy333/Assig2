@@ -114,4 +114,10 @@ class TripleString
       }
    }
    
+   public String toString()
+   {
+      String combinedString = string1 + " " + string2 + " " + string3;
+      return combinedString;
+   }
+   
 }

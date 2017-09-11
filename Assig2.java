@@ -30,7 +30,7 @@ public class Assig2
    /* This method produces and returns a single random string based on the
     * required probabilities.
     */
-   private String randString()
+   private static String randString()
    {
       
    }
@@ -38,7 +38,7 @@ public class Assig2
    /*  Takes the pullString as a parameter, and inspects it to determine what 
     *  its pay multiplier should be
     */
-   public int getPayMultiplier(TripleString thePull)
+   public static int getPayMultiplier(TripleString thePull)
    {
       
    }

@@ -133,7 +133,7 @@ class TripleString
    }
    
    // This method displays the winnings of the user
-   public displayWinnings() {
+   public String displayWinnings() {
       
    }
 }

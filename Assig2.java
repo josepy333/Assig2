@@ -26,7 +26,7 @@ public class Assig2
             + " quit?");
       bet = keyboard.nextInt();
       }
-      while( bet < 1 || bet > 100);
+      while( bet < 0 || bet > 100);
       return bet;
    }
    
@@ -80,6 +80,40 @@ public class Assig2
     */
    public static int getPayMultiplier(TripleString thePull)
    {
+      int multiplier;
+      String c = "cherries";
+      String b = "BAR";
+      System.out.println(thePull.getString1());
+      System.out.println(thePull.getString2());
+      System.out.println(thePull.getString3());
+      if (thePull.getString1().equals(c) && !(thePull.getString2().equals(c)))
+      {
+         multiplier = 5;
+      }
+      else if (thePull.getString1().equals(c) && thePull.getString2().equals(c))
+      {
+         multiplier = 15;
+      }
+      else if (thePull.getString1().equals(c) && thePull.getString2().equals(c) 
+            && thePull.getString3().equals(c))
+      {
+         multiplier = 30;
+      }
+      else if (thePull.getString1().equals(b) && 
+            thePull.getString2().equals(b) && 
+            thePull.getString3().equals(b))
+      {
+         multiplier = 50;
+      }
+      else if (thePull.getString1().equals("7") && 
+            thePull.getString2().equals("7") && 
+            thePull.getString3().equals("7"))
+      {
+         multiplier = 100;
+      }
+      else multiplier = 1;
+      System.out.println(multiplier);
+      return multiplier;
       
    }
    
@@ -96,13 +130,16 @@ public class Assig2
    public static void main(String[] args)
    {
       int bet = 0;
+      int m;
       do
       {
          // Test
          bet = getBet();
-         TripleString thePull = new TripleString();
-         thePull = pull();
-         System.out.println(thePull.getString1());
+         TripleString pullString = pull();
+         //pullString = pull();
+         System.out.println(pullString.toString());
+         m = getPayMultiplier(pullString);
+         System.out.println(m);
          
       }
       while (bet != 0);

@@ -1,6 +1,10 @@
 /**
  * 
  * Joseph Cortez
+ * Lyndsay Hackett
+ * Mokhlis Awad
+ * Ahdia Fuller
+ *
  * Assig2 Class: Simulates a slot machine
  *
  */
@@ -147,7 +151,7 @@ public class Assig2
       if (bet == 0) {
          System.out.println("Thanks for playing at the Casino!");
          System.out.println("Your individual winnings were:");
-         //needs to be something here that sets the displayWinnings() result here
+         String outputResult = TripleString.displayWinnings();
       }
       
    }
@@ -256,7 +260,7 @@ class TripleString
    public String displayWinnings() {
       String result = "";
       for (i = 0; i < pullWinnings.length; i++) {
-         if (i>0){
+         if (i > 0) {
             result = result + " ";
          }
          String item = pullWinnings[i];

@@ -147,7 +147,7 @@ public class Assig2
       if (bet == 0) {
          System.out.println("Thanks for playing at the Casino!");
          System.out.println("Your individual winnings were:");
-         String indWinnngs = 
+         //needs to be something here that sets the displayWinnings() result here
       }
       
    }
@@ -157,7 +157,10 @@ public class Assig2
 class TripleString
 {
    public static final int MAX_LEN = 20;
-
+   public static final int MAX_PULLS = 40;
+   private static int[] pullWinnings = new int [MAX_PULLS];
+   private static int numPulls;
+      
    private String string1, string2, string3;
 
    // This method is the default constructor, which initalizes our private strings.
@@ -251,7 +254,15 @@ class TripleString
   
    // This method displays the total winnings of the user from the array
    public String displayWinnings() {
-      
+      String result = "";
+      for (i = 0; i < pullWinnings.length; i++) {
+         if (i>0){
+            result = result + " ";
+         }
+         String item = pullWinnings[i];
+         result = result + item;
+      }
+      return result; 
    }
 
 }

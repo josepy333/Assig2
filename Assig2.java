@@ -33,6 +33,14 @@ public class Assig2
    // This method instantiates and returns a TripleString object to the client.
    public static TripleString pull()
    {
+      TripleString pulled = new TripleString();
+      String firstString = randString();
+      String secondString = randString();
+      String thirdString = randString();
+      pulled.setString1(firstString);
+      pulled.setString2(secondString);
+      pulled.setString3(thirdString);
+      return pulled;
       
    }
    
@@ -90,7 +98,12 @@ public class Assig2
       int bet = 0;
       do
       {
+         // Test
          bet = getBet();
+         TripleString thePull = new TripleString();
+         thePull = pull();
+         System.out.println(thePull.getString1());
+         
       }
       while (bet != 0);
       
@@ -116,10 +129,12 @@ class TripleString
    // Determines legality of string
    public boolean validString(String str)
    {
-      if (str != NULL && str.length() < MAX_LEN) {
+      if ((str.length() > 0) && (str.length() < MAX_LEN)) 
+      {
          return true;
       }
-      else {
+      else
+      {
          return false;
       }
    }

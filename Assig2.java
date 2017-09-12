@@ -98,7 +98,11 @@ class TripleString
          return false;
       }
    }
-   
+   // method to get string 1
+	public String getString1() {
+		return string1;
+	}
+
    public boolean setString2(String str)
    {
       if (validString(str) == true)
@@ -111,6 +115,10 @@ class TripleString
          return false;
       }
    }
+   // method to get string 2
+	public String getString2() {
+		return string2;
+	}
    
    public boolean setString3(String str)
    {
@@ -125,13 +133,26 @@ class TripleString
       }
    }
    
+   // method to get string 3
+	public String getString3() {
+		return string3;
+	}
    // This method combines the private strings into a single string.
    public String toString()
    {
       String combinedString = string1 + " " + string2 + " " + string3;
       return combinedString;
    }
-   
+   // method to save winnings
+	public boolean saveWinnings(int winnings) {
+		if (numPulls + 1 < pullWinnings.length) {
+			pullWinnings[numPulls++] = winnings;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
    // This method displays the winnings of the user
    public String displayWinnings() {
     

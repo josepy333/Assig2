@@ -144,6 +144,11 @@ public class Assig2
       }
       while (bet != 0);
       
+      if (bet == 0) {
+         System.out.println("Thanks for playing at the Casino!");
+         System.out.println("Your individual winnings were:");
+         String indWinnngs = 
+      }
       
    }
 
@@ -243,9 +248,10 @@ class TripleString
          return false;
       }
    }
-
-   // This method displays the winnings of the user
+  
+   // This method displays the total winnings of the user from the array
    public String displayWinnings() {
-    
+      
    }
+
 }

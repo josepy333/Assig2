@@ -26,7 +26,7 @@ public class Assig2
             + " quit?");
       bet = keyboard.nextInt();
       }
-      while(bet < 1 || bet > 100);
+      while( bet < 1 || bet > 100);
       return bet;
    }
    
@@ -41,6 +41,29 @@ public class Assig2
     */
    private static String randString()
    {
+      String pullString = "";
+      int randomNumber = (int) (Math.random() * 1000);
+      if (randomNumber > 1 && randomNumber <= 125)
+      {
+         pullString = "7";
+      }
+      else if (randomNumber > 125 && randomNumber <= 250)
+      {
+         pullString = "(space)";
+      }
+      else if (randomNumber > 250 && randomNumber <= 500)
+      {
+         pullString = "cherries";
+      }
+      else if (randomNumber > 500 && randomNumber <= 1000)
+      {
+         pullString = "BAR";
+      }
+      else
+      {
+         System.out.println("Fatal ERROR");
+      }
+      return pullString;
       
    }
    
@@ -64,6 +87,13 @@ public class Assig2
    // Main method
    public static void main(String[] args)
    {
+      int bet = 0;
+      do
+      {
+         bet = getBet();
+      }
+      while (bet != 0);
+      
       
    }
 

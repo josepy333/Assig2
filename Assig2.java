@@ -10,6 +10,7 @@ import java.lang.Math;
 
 public class Assig2
 {
+   public static Scanner keyboard = new Scanner(System.in);
    /* This prompts the user for input and returns the bet amount as a functional
     * return.  It should validate the amount before it returns and insist on a 
     * legal bet (0 < bet < 100) until it gets one from the user.  It must return
@@ -18,7 +19,15 @@ public class Assig2
     */
    public static int getBet()
    {
-      
+      int bet;
+      do
+      {
+      System.out.println("How much would you like to bet (1 - 100) or 0 to"
+            + " quit?");
+      bet = keyboard.nextInt();
+      }
+      while(bet < 1 || bet > 100);
+      return bet;
    }
    
    // This method instantiates and returns a TripleString object to the client.
@@ -99,9 +108,9 @@ class TripleString
       }
    }
    // method to get string 1
-	public String getString1() {
-		return string1;
-	}
+   public String getString1() {
+      return string1;
+   }
 
    public boolean setString2(String str)
    {
@@ -116,9 +125,9 @@ class TripleString
       }
    }
    // method to get string 2
-	public String getString2() {
-		return string2;
-	}
+   public String getString2() {
+      return string2;
+   }
    
    public boolean setString3(String str)
    {
@@ -134,9 +143,9 @@ class TripleString
    }
    
    // method to get string 3
-	public String getString3() {
-		return string3;
-	}
+   public String getString3() {
+      return string3;
+   }
    // This method combines the private strings into a single string.
    public String toString()
    {
@@ -144,14 +153,14 @@ class TripleString
       return combinedString;
    }
    // method to save winnings
-	public boolean saveWinnings(int winnings) {
-		if (numPulls + 1 < pullWinnings.length) {
-			pullWinnings[numPulls++] = winnings;
-			return true;
-		} else {
-			return false;
-		}
-	}
+   public boolean saveWinnings(int winnings) {
+      if (numPulls + 1 < pullWinnings.length) {
+         pullWinnings[numPulls++] = winnings;
+         return true;
+      } else {
+         return false;
+      }
+   }
 
    // This method displays the winnings of the user
    public String displayWinnings() {

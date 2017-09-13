@@ -87,9 +87,6 @@ public class Assig2
       int multiplier;
       String c = "cherries";
       String b = "BAR";
-      System.out.println(thePull.getString1());
-      System.out.println(thePull.getString2());
-      System.out.println(thePull.getString3());
       if (thePull.getString1().equals(c) && !(thePull.getString2().equals(c)))
       {
          multiplier = 5;
@@ -115,9 +112,9 @@ public class Assig2
       {
          multiplier = 100;
       }
-      else multiplier = 1;
+      else multiplier = 0;
       System.out.println(multiplier);
-      return multiplier;
+      //return multiplier;             test for multiplier
       
    }
    
@@ -127,7 +124,15 @@ public class Assig2
     */
    public static void display(TripleString thePull, int winnings)
    {
-      
+      if(winnings > 0)
+      {
+         System.out.println(thePull.toString());
+         System.out.println("Congratulations! You win $" + winnings);
+      }
+      else
+      {
+         System.out.println("Sorry, you lose!");
+      }
    }
 
    // Main method
@@ -142,10 +147,14 @@ public class Assig2
          // Test
          bet = getBet();
          pullString = pull();
-         //pullString = pull();
-         System.out.println(pullString.toString());
          m = getPayMultiplier(pullString);
-         pullString.saveWinnings(m * bet); 
+         pullWinnings = m * bet;
+         if (bet != 0)
+            display(pullString, pullWinnings);
+         pullString.saveWinnings(pullWinnings); 
+         
+         //pullString = pull();
+         //System.out.println(pullString.toString());
          
       }
       while (bet != 0);
@@ -155,6 +164,7 @@ public class Assig2
          System.out.println("Your individual winnings were:");
          String outputResult = pullString.displayWinnings();
          System.out.println(outputResult);
+         System.out.println("Your total winnings were: $");
       }
       
    }

@@ -131,7 +131,7 @@ public class Assig2
       {
          System.out.println("whirrrrrr .... and your pull is ...");
          System.out.println(thePull.toString());
-         System.out.println("Congratulations! You win $" + winnings);
+         System.out.printf("Congratulations! You win $%,d\n", winnings);
          System.out.println();
       }
       else
@@ -182,7 +182,7 @@ public class Assig2
             totalWinnings = totalWinnings + 
                   Integer.parseInt(winningsToken.nextToken());
          }
-         System.out.println("Your total winnings were: $" + totalWinnings);
+         System.out.printf("Your total winnings were: $%,d\n", totalWinnings);
       }
    System.exit(0);  
    }

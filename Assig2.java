@@ -131,6 +131,7 @@ public class Assig2
       }
       else
       {
+         System.out.println(thePull.toString());
          System.out.println("Sorry, you lose!");
       }
    }
@@ -142,6 +143,7 @@ public class Assig2
       int m;
       int pullWinnings;
       TripleString pullString;
+      String outputResult = "";
       do
       {
          // Test
@@ -150,8 +152,10 @@ public class Assig2
          m = getPayMultiplier(pullString);
          pullWinnings = m * bet;
          if (bet != 0)
+         {
             display(pullString, pullWinnings);
-         pullString.saveWinnings(pullWinnings); 
+            pullString.saveWinnings(pullWinnings);
+         }
          
          //pullString = pull();
          //System.out.println(pullString.toString());
@@ -162,9 +166,8 @@ public class Assig2
       if (bet == 0) 
       {
          System.out.println("Thanks for playing at the Casino!");
-         System.out.println("Your individual winnings were:");
-         String outputResult = pullString.displayWinnings();
-         System.out.println(outputResult);
+         outputResult = pullString.displayWinnings();
+         System.out.println("Your individual winnings were:" + outputResult);
          StringTokenizer winningsToken = new StringTokenizer(outputResult);
          int totalWinnings = 0;
          while(winningsToken.hasMoreTokens()) 
@@ -184,6 +187,7 @@ class TripleString
    public static final int MAX_LEN = 20;
    public static final int MAX_PULLS = 40;
    private static int[] pullWinnings = new int [MAX_PULLS];
+ 
    private static int numPulls = 0;
       
    private String string1, string2, string3;
@@ -194,10 +198,7 @@ class TripleString
       string1 = "";
       string2 = "";
       string3 = "";
-      for(int i = 0; i < pullWinnings.length; i++)
-      {
-         pullWinnings[i]= -1;   
-      }
+      
    }
    
    // Determines legality of string
@@ -278,6 +279,7 @@ class TripleString
       if (numPulls < pullWinnings.length)
       {
          pullWinnings[numPulls] = winnings;
+         System.out.println(pullWinnings[numPulls]);
          numPulls++;
          return true;
       } 

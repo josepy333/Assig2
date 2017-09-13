@@ -292,7 +292,6 @@ class TripleString
       if (numPulls < pullWinnings.length)
       {
          pullWinnings[numPulls] = winnings;
-         System.out.println(pullWinnings[numPulls]);
          numPulls++;
          return true;
       } 

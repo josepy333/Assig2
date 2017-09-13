@@ -135,15 +135,17 @@ public class Assig2
    {
       int bet = 0;
       int m;
+      int pullWinnings;
+      TripleString pullString;
       do
       {
          // Test
          bet = getBet();
-         TripleString pullString = pull();
+         pullString = pull();
          //pullString = pull();
          System.out.println(pullString.toString());
          m = getPayMultiplier(pullString);
-         System.out.println(m);
+         pullString.saveWinnings(m * bet); 
          
       }
       while (bet != 0);
@@ -151,7 +153,8 @@ public class Assig2
       if (bet == 0) {
          System.out.println("Thanks for playing at the Casino!");
          System.out.println("Your individual winnings were:");
-         String outputResult = TripleString.displayWinnings();
+         String outputResult = pullString.displayWinnings();
+         System.out.println(outputResult);
       }
       
    }
@@ -163,7 +166,7 @@ class TripleString
    public static final int MAX_LEN = 20;
    public static final int MAX_PULLS = 40;
    private static int[] pullWinnings = new int [MAX_PULLS];
-   private static int numPulls;
+   private static int numPulls = 0;
       
    private String string1, string2, string3;
 
@@ -173,6 +176,10 @@ class TripleString
       string1 = "";
       string2 = "";
       string3 = "";
+      for(int i = 0; i < pullWinnings.length; i++)
+      {
+         pullWinnings[i]= -1;   
+      }
    }
    
    // Determines legality of string
@@ -246,25 +253,36 @@ class TripleString
       String combinedString = string1 + " " + string2 + " " + string3;
       return combinedString;
    }
+   
    // method to save winnings
-   public boolean saveWinnings(int winnings) {
-      if (numPulls + 1 < pullWinnings.length) {
+   public boolean saveWinnings(int winnings) 
+   { 
+      if (numPulls + 1 < pullWinnings.length)
+      {
          pullWinnings[numPulls++] = winnings;
          return true;
-      } else {
+      } 
+      else 
+      {
+         System.out.println("You've exceeded the maximum number of pulls!");
          return false;
       }
    }
   
    // This method displays the total winnings of the user from the array
-   public String displayWinnings() {
+   public String displayWinnings() 
+   {
       String result = "";
-      for (i = 0; i < pullWinnings.length; i++) {
-         if (i > 0) {
+      for (int i = 0; i < pullWinnings.length; i++)
+      {
+         if (pullWinnings[i] != -1)
+         {
             result = result + " ";
+            String item = "";
+            item = Integer.toString(pullWinnings[i]);
+            result = result + item;
          }
-         String item = pullWinnings[i];
-         result = result + item;
+         
       }
       return result; 
    }

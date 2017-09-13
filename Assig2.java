@@ -12,9 +12,11 @@
 import java.util.*;
 import java.lang.Math;
 
+// Main class for Assignment 2
 public class Assig2
 {
    public static Scanner keyboard = new Scanner(System.in);
+   
    /* This prompts the user for input and returns the bet amount as a functional
     * return.  It should validate the amount before it returns and insist on a 
     * legal bet (0 < bet < 100) until it gets one from the user.  It must return
@@ -24,6 +26,7 @@ public class Assig2
    public static int getBet()
    {
       int bet;
+      // Place bet loop
       do
       {
       System.out.println("How much would you like to bet (1 - 100) or 0 to"
@@ -126,13 +129,17 @@ public class Assig2
    {
       if(winnings > 0)
       {
+         System.out.println("whirrrrrr .... and your pull is ...");
          System.out.println(thePull.toString());
          System.out.println("Congratulations! You win $" + winnings);
+         System.out.println();
       }
       else
       {
+         System.out.println("whirrrrrr .... and your pull is ...");
          System.out.println(thePull.toString());
          System.out.println("Sorry, you lose!");
+         System.out.println();
       }
    }
 
@@ -140,13 +147,13 @@ public class Assig2
    public static void main(String[] args)
    {
       int bet = 0;
-      int m;
+      int m;                        // Multiplier
       int pullWinnings;
       TripleString pullString;
       String outputResult = "";
+      // Main loop
       do
       {
-         // Test
          bet = getBet();
          pullString = pull();
          m = getPayMultiplier(pullString);
@@ -155,21 +162,21 @@ public class Assig2
          {
             display(pullString, pullWinnings);
             pullString.saveWinnings(pullWinnings);
-         }
-         
-         //pullString = pull();
-         //System.out.println(pullString.toString());
-         
+         }   
       }
       while (bet != 0);
       
+      //End of game
       if (bet == 0) 
       {
          System.out.println("Thanks for playing at the Casino!");
          outputResult = pullString.displayWinnings();
-         System.out.println("Your individual winnings were:" + outputResult);
+         System.out.println("Your individual winnings were:");
+         System.out.println(outputResult);
          StringTokenizer winningsToken = new StringTokenizer(outputResult);
          int totalWinnings = 0;
+         
+         // Convert Winning Strings to ints
          while(winningsToken.hasMoreTokens()) 
          {
             totalWinnings = totalWinnings + 
@@ -177,7 +184,7 @@ public class Assig2
          }
          System.out.println("Your total winnings were: $" + totalWinnings);
       }
-      
+   System.exit(0);  
    }
 
 }
@@ -192,7 +199,7 @@ class TripleString
       
    private String string1, string2, string3;
    
-   // This method is the default constructor, which initalizes our private strings.
+   // This method is the default constructor, initalizes our private strings.
    public TripleString()
    {
       string1 = "";
@@ -214,7 +221,7 @@ class TripleString
       }
    }
    
-   // Modifiers for setting private string values
+   // Modifier for setting private string values
    public boolean setString1(String str)
    {
       if (validString(str) == true)
@@ -227,11 +234,13 @@ class TripleString
          return false;
       }
    }
+   
    // method to get string 1
    public String getString1() {
       return string1;
    }
-
+   
+   // Modifier for setting private string values
    public boolean setString2(String str)
    {
       if (validString(str) == true)
@@ -244,11 +253,13 @@ class TripleString
          return false;
       }
    }
+   
    // method to get string 2
    public String getString2() {
       return string2;
    }
    
+   // Modifier for setting private string values
    public boolean setString3(String str)
    {
       if (validString(str) == true)
@@ -263,9 +274,11 @@ class TripleString
    }
    
    // method to get string 3
-   public String getString3() {
+   public String getString3() 
+   {
       return string3;
    }
+   
    // This method combines the private strings into a single string.
    public String toString()
    {

@@ -131,6 +131,7 @@ public class Assig2
       }
       else
       {
+         System.out.println(thePull.toString());
          System.out.println("Sorry, you lose!");
       }
    }

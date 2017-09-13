@@ -113,8 +113,8 @@ public class Assig2
          multiplier = 100;
       }
       else multiplier = 0;
-      System.out.println(multiplier);
-      //return multiplier;             test for multiplier
+      //System.out.println(multiplier);   test for multiplier
+      return multiplier;
       
    }
    
@@ -159,12 +159,20 @@ public class Assig2
       }
       while (bet != 0);
       
-      if (bet == 0) {
+      if (bet == 0) 
+      {
          System.out.println("Thanks for playing at the Casino!");
          System.out.println("Your individual winnings were:");
          String outputResult = pullString.displayWinnings();
          System.out.println(outputResult);
-         System.out.println("Your total winnings were: $");
+         StringTokenizer winningsToken = new StringTokenizer(outputResult);
+         int totalWinnings = 0;
+         while(winningsToken.hasMoreTokens()) 
+         {
+            totalWinnings = totalWinnings + 
+                  Integer.parseInt(winningsToken.nextToken());
+         }
+         System.out.println("Your total winnings were: $" + totalWinnings);
       }
       
    }
@@ -267,9 +275,10 @@ class TripleString
    // method to save winnings
    public boolean saveWinnings(int winnings) 
    { 
-      if (numPulls + 1 < pullWinnings.length)
+      if (numPulls < pullWinnings.length)
       {
-         pullWinnings[numPulls++] = winnings;
+         pullWinnings[numPulls] = winnings;
+         numPulls++;
          return true;
       } 
       else 

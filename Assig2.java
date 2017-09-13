@@ -187,11 +187,11 @@ class TripleString
    public static final int MAX_LEN = 20;
    public static final int MAX_PULLS = 40;
    private static int[] pullWinnings = new int [MAX_PULLS];
- 
+   
    private static int numPulls = 0;
       
    private String string1, string2, string3;
-
+   
    // This method is the default constructor, which initalizes our private strings.
    public TripleString()
    {
@@ -294,7 +294,7 @@ class TripleString
    public String displayWinnings() 
    {
       String result = "";
-      for (int i = 0; i < pullWinnings.length; i++)
+      for (int i = 0; i < numPulls; i++)
       {
          if (pullWinnings[i] != -1)
          {
